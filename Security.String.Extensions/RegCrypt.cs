@@ -29,7 +29,7 @@ namespace Security.String.Extensions
         /// <param name="strNodeName">Name of the Node to write to</param>
         /// <param name="value">Value to be written</param>
 
-        public void WriteRegistryValue(string strPath, string strNodeName, string value)
+        public void WriteRegistry(string strPath, string strNodeName, string value)
         {
             var encrypted = Convert.FromBase64String(value.Encrypt());
             Registry.SetValue(strPath, strNodeName, encrypted);
@@ -44,9 +44,9 @@ namespace Security.String.Extensions
         /// <param name="strNodeName">Name of the Node to read from</param>
         /// <returns></returns>
 
-        public SecureString ReadRegistryValue(string strPath, string strNodeName)
+        public SecureString ReadRegistry(string strPath, string strNodeName)
         {
-            return GetEncryptedValue(strPath, strNodeName).DecryptToSecure();
+            return GetEncrypted(strPath, strNodeName).DecryptToSecure();
         }
 
         // ------------------------------------------------
@@ -58,9 +58,9 @@ namespace Security.String.Extensions
         /// <param name="strNodeName">Name of the Node to read from</param>
         /// <returns></returns>
 
-        public string ReadStringValue(string strPath, string strNodeName)
+        public string ReadString(string strPath, string strNodeName)
         {
-            return GetEncryptedValue(strPath, strNodeName).Decrypt();
+            return GetEncrypted(strPath, strNodeName).Decrypt();
         }
 
         // ------------------------------------------------
@@ -72,7 +72,7 @@ namespace Security.String.Extensions
         /// <param name="strNodeName">Name of the Node to read from</param>
         /// <returns></returns>
 
-        private static string GetEncryptedValue(string strPath, string strNodeName)
+        private string GetEncrypted(string strPath, string strNodeName)
         {
             var val = Registry.GetValue(strPath, strNodeName, string.Empty) as byte[];
             return Convert.ToBase64String(val);

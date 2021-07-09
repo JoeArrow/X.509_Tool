@@ -74,6 +74,11 @@ namespace Security.String.Extensions_UT
         [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\SecureStringExtension\UNICODE", "UserID", @"Bogus")]
         public void ReadRegistry_RegCrypt_Reads_An_Encrypted_Value_From_The_Registry(string path, string nodeName, string expected)
         {
+            // -------
+            // Arrange
+
+            var sut = new RegCrypt();
+
             // ---
             // Log
 
@@ -82,7 +87,7 @@ namespace Security.String.Extensions_UT
             // ---
             // Act
 
-            var val = RegCrypt.ReadRegistry(path, nodeName);
+            var val = sut.ReadRegistry(path, nodeName);
             var insecure = val.Unwrap();
 
             // ---
@@ -102,6 +107,11 @@ namespace Security.String.Extensions_UT
         [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\SecureStringExtension\Volatile", "UserID", @"AFLHQ\contindeployNT-user")]
         public void ReadString_RegCrypt_Reads_An_Encrypted_Value_From_The_Registry(string path, string nodeName, string expected)
         {
+            // -------
+            // Arrange
+
+            var sut = new RegCrypt();
+
             // ---
             // Log
 
@@ -110,7 +120,7 @@ namespace Security.String.Extensions_UT
             // ---
             // Act
 
-            var val = RegCrypt.ReadString(path, nodeName);
+            var val = sut.ReadString(path, nodeName);
 
             // ---
             // Log
@@ -129,6 +139,11 @@ namespace Security.String.Extensions_UT
         [DataRow("UserID", @"AFLHQ\contindeployNT-user", @"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\SecureStringExtension\Volitile")]
         public void WriteRegistry_RegCrypt_Adds_An_Encrypted_Value_To_The_Registry(string nodeName, string entryValue, string path)
         {
+            // -------
+            // Arrange
+
+            var sut = new RegCrypt();
+
             // ---
             // Log
 
@@ -140,12 +155,12 @@ namespace Security.String.Extensions_UT
             // ---
             // Act
 
-            RegCrypt.WriteRegistry(path, nodeName, entryValue);
+            sut.WriteRegistry(path, nodeName, entryValue);
 
             // ---
             // Log
 
-            var val = RegCrypt.ReadRegistry(path, nodeName);
+            var val = sut.ReadRegistry(path, nodeName);
 
             var insecure = val.Unwrap();
             Console.WriteLine($"Value Retrieved:{crt}{insecure}{cr}");
