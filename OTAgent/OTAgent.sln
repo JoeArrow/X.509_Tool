@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTAgent", "OTAgent\OTAgent.csproj", "{1C6F210B-0851-46C5-B963-0341D14507D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTAgent_IT", "OTAgent_IT\OTAgent_IT.csproj", "{C69D931A-2483-416B-8FEB-340CFFA4CE9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{33E40022-47F5-4BFF-AAE8-25D3371C80F9}"
+	ProjectSection(SolutionItems) = preProject
+		opentoken-agent.dll = opentoken-agent.dll
+		Test.config = Test.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIA", "CIA\CIA.csproj", "{1676461A-2EDD-4CBE-B6D1-D8072E110C07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C6F210B-0851-46C5-B963-0341D14507D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C6F210B-0851-46C5-B963-0341D14507D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C6F210B-0851-46C5-B963-0341D14507D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C6F210B-0851-46C5-B963-0341D14507D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69D931A-2483-416B-8FEB-340CFFA4CE9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69D931A-2483-416B-8FEB-340CFFA4CE9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69D931A-2483-416B-8FEB-340CFFA4CE9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69D931A-2483-416B-8FEB-340CFFA4CE9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1676461A-2EDD-4CBE-B6D1-D8072E110C07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1676461A-2EDD-4CBE-B6D1-D8072E110C07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1676461A-2EDD-4CBE-B6D1-D8072E110C07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1676461A-2EDD-4CBE-B6D1-D8072E110C07}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3FB9BB74-CF62-4CDE-AFBD-7BFE3816E8DA}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.aflac.com:8080/tfs/globalcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = OTAgent\\OTAgent.csproj
+		SccProjectName1 = OTAgent
+		SccLocalPath1 = OTAgent
+		SccProjectUniqueName2 = OTAgent_IT\\OTAgent_IT.csproj
+		SccProjectName2 = OTAgent_IT
+		SccLocalPath2 = OTAgent_IT
+		SccProjectUniqueName3 = CIA\\CIA.csproj
+		SccProjectName3 = CIA
+		SccLocalPath3 = CIA
+	EndGlobalSection
+EndGlobal

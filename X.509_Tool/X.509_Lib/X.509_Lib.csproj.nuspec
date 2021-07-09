@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<package>
+    <metadata>
+        <id>$id$</id>
+        <title>$title$</title>
+        <owners>Aflac Inc.</owners>
+        <version>$version$</version>
+        <copyright>$Copyright$</copyright>
+        <authors>E99965 - Joe Arrowood</authors>
+        <description>$description$</description>
+        <tags>Security Utility Utilities Certificates X509 Arrowood</tags>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    </metadata>
+</package>

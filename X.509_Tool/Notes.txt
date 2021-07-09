@@ -1,0 +1,32 @@
+﻿\\5cg7126x3m\c$\Usage\Source\HelpOthers\Aflac.Com.WebOrdering.API\Documents\Certificates
+
+Certificate NickName		Server		Password		Thumbprint
+webordering.aflac.com		PCWSVC03A	Aa23WebOrder		
+		                    PCWSVC03B				
+		                    PCWSVC03C				
+						
+webordering.nt.lab.com		ICWSVC03A	Aa23WebOrder		81 93 1f 3d 76 91 c6 75 96 11 a1 17 64 23 39 ee 0d 14 f2 da
+		                    ICWSVC03B				        81 93 1f 3d 76 91 c6 75 96 11 a1 17 64 23 39 ee 0d 14 f2 da
+		                    				
+		                    SCWSVC03A	Aa23WebOrder		
+		                    SCWSVC03B				
+						
+mmr.aflac.com		        PCWSVC03A	Mmr23Marketing		
+		PCWSVC03B				
+		PCWSVC03C				
+						
+mmr.nt.lab.com		        ICWSVC03A	Mmr23Marketing      ‎0a d5 ac 64 19 76 bc 5a a1 1b 72 c7 02 02 55 b2 cc 2f 5e 7f
+		                    ICWSVC03B				‎        0a d5 ac 64 19 76 bc 5a a1 1b 72 c7 02 02 55 b2 cc 2f 5e 7f
+		                    				
+		                    SCWSVC03A				
+		                    SCWSVC03B				
+						
+duckgear.aflac.com		    TBD		    Dd23DuckGear		
+		TBD				
+		TBD				
+						
+duckgear.nt.lab.com		    TBD		    Dd23DuckGear		
+		TBD				
+						
+		TBD				
+		TBD				

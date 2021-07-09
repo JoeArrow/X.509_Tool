@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>$id$</id>
+        <title>$title$</title>
+        <owners>$author$</owners>
+        <version>$version$</version>
+        <copyright>$Copyright$</copyright>
+        <description>$description$</description>
+        <authors>Philipp Sumi, Joe Arrowood</authors>
+        <tags>Security Utilities Encryption Arrowood</tags>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    </metadata>
+</package>

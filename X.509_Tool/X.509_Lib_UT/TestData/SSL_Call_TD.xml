@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestData>
+
+    <SSL_Call>
+        <MethodPath>Items</MethodPath>
+        <Serial>15000D2DCB6E72F3604766BAC00001000D2DCB</Serial>
+        <BaseUri>https://webordering-api-dev.nt.lab.com/desknet_consumer_api/</BaseUri>
+        <QueryString>/A-10643?StateCode=AL,AK&amp;WritingNo=02SNG&amp;ItemSource=WebOrdering</QueryString>
+        <CertRequest>{"StoreName":"My", "searchType":"FindBySerialNumber", "storeLocation":"LocalMachine", "validOnly":"true", "searchValue":"15000D2DCCAA6557337387D77C0001000D2DCC"}</CertRequest>
+    </SSL_Call>
+    
+    <!-- ************* -->
+
+    <SSL_Call_Local>
+        <MethodPath>Items</MethodPath>
+        <Serial>15000D2DCB6E72F3604766BAC00001000D2DCB</Serial>
+        <BaseUri>https://webordering.nt.lab.com/desknet_consumer_api/</BaseUri>
+        <QueryString>/A-10643?StateCode=AL,AK&amp;WritingNo=02SNG&amp;ItemSource=WebOrdering</QueryString>
+        <CertRequest>{"StoreName":"My", "searchType":"FindBySerialNumber", "storeLocation":"LocalMachine", "validOnly":"true", "searchValue":"15000D2DCCAA6557337387D77C0001000D2DCC"}</CertRequest>
+    </SSL_Call_Local>
+    
+    <!-- ************* -->
+
+    <SSL_Call_Bad_Cert>
+        <MethodPath>Items</MethodPath>
+        <Serial>1BBA4482B6AF2FB84B81AC578A0C4739</Serial>
+        <BaseUri>https://localhost/desknet_consumer_api/</BaseUri>
+        <QueryString>/A-10643?StateCode=AL,AK&amp;WritingNo=02SNG&amp;ItemSource=WebOrdering</QueryString>
+        <CertRequest>{"StoreName":"My", "searchType":"FindByThumbprint", "storeLocation":"CurrentUser", "validOnly":"false", "searchValue":"‎‎49e3dd14fb4d7de903184493ce5c9f0f01ec350f"}</CertRequest>
+    </SSL_Call_Bad_Cert>
+    
+</TestData>

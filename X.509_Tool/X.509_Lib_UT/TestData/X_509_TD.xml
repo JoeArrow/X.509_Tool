@@ -1,0 +1,63 @@
+﻿<?xml version='1.0' encoding='utf-8' ?>
+<TestData>
+
+    <Get>
+        <Request>
+            {'StoreName':'My', 'searchType':'FindBySubjectName',
+             'storeLocation':'LocalMachine', 'searchValue':'5CG0178WT2'}
+        </Request>
+    </Get>
+
+    <Get>
+        <Request>
+            {'StoreName':'My','searchType':'FindBySubjectName','storeLocation':'LocalMachine','searchValue':'5CG0178WT2.hq.aflac.com'}
+        </Request>
+    </Get>
+
+    <Get>
+        <Request>
+            {'StoreName':'My','searchType':'FindByThumbprint','storeLocation':'LocalMachine','validOnly':false,'searchValue':'421b7cee4f1781ecfcabad965a18c2f524308dd9'}
+        </Request>
+    </Get>
+
+    <Get>
+        <Request>
+            {'StoreName':'CertificateAuthority', 
+             'searchType':'FindByThumbprint', 
+             'storeLocation':'LocalMachine', 
+             'validOnly':'false', 
+             'searchValue':'716ef3a297051f385ae38e4795bf6940411de75f'}
+        </Request>
+    </Get>
+
+    <Get>
+        <Request>
+            {'StoreName':'CertificateAuthority',
+             'searchType':'FindByThumbprint',
+             'storeLocation':'LocalMachine',
+             'validOnly':'false',
+             'searchValue':'71 6e f3 a2 97 05 1f 38 5a e3 8e 47 95 bf 69 40 41 1d e7 5f'}
+        </Request>
+    </Get>
+
+    <Get>
+        <Request>
+            {'StoreName':'My',
+             'searchType':'FindByThumbprint',
+             'storeLocation':'CurrentUser',
+             'validOnly':'false',
+             'searchValue':'0905a2aa92cc4cef9b05ca7ea8b131ae6eed05f8'}
+        </Request>
+    </Get>
+
+    <Get>
+        <Request>
+            {'StoreName':'My',
+             'searchType':'FindBySerialNumber',
+             'storeLocation':'CurrentUser',
+             'validOnly':'false',
+             'searchValue':'24f28c502e170ebc4abfdcff1497c8f0'}
+        </Request>
+    </Get>
+
+</TestData>
