@@ -154,7 +154,11 @@ namespace X._509_Tool
                 }
             }
 
-            retVal.Append($"{"Subject".PadRight(len.SubjectLen)} | {"Expire Date".PadRight(len.ExpDateLen)} | {"Thumbprint".PadRight(len.ThumbprintLen)} | {"Issuer"}{cr}");
+            retVal.Append($"{"Subject".PadRight(len.SubjectLen)} | " +
+                          $"{"Expire Date".PadRight(len.ExpDateLen)} | " +
+                          $"{"Thumbprint".PadRight(len.ThumbprintLen)} | " +
+                          $"{"Issuer"}{cr}");
+
             retVal.AppendFormat($"{new string('-', len.Total + 9)}{cr}");
 
             foreach(var cert in store.Certificates)
