@@ -12,11 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("JoeWare")]
 [assembly: AssemblyProduct("X.509_Tool")]
 [assembly: AssemblyCopyright("Copyright © 2017")]
-[assembly: AssemblyDescription("This tool is intended to make it easy to pull up data about a Certificate" + 
-                               "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n" +
-                               "‎42 1b 7c ee 4f 17 81 ec fc ab ad 96 5a 18 c2 f5 24 30 8d d9" + "\r\n" +
-                               "‎0a d5 ac 64 19 76 bc 5a a1 1b 72 c7 02 02 55 b2 cc 2f 5e 7f" + "\r\n" +
-                               "94 cf 38 c5 db f8 47 ad d6 2b b5 5a e9 17 d4 2a 8f de 24 06  - (Twice)")]
+[assembly: AssemblyDescription("This tool is intended to make it easy to pull up data about a Certificate.")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from

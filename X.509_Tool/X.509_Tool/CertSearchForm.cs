@@ -71,7 +71,7 @@ namespace X._509_Tool
 
                 foreach(var cert in certs)
                 {
-                    text.Append(GetDisplayString(cert));
+                    text.Append(GetDisplayString(cert, $"{req.storeLocation.ToString()}.{req.storeName.ToString()}"));
                 }
 
                 retVal = text.ToString();
@@ -161,12 +161,14 @@ namespace X._509_Tool
 
         // ------------------------------------------------
 
-        private string GetDisplayString(X509Certificate2 cert)
+        private string GetDisplayString(X509Certificate2 cert, string location)
         {
             var retVal = new StringBuilder();
+            var subject = StringUtil.ParseValue(cert.Subject, "CN=", ',', 1);
 
-            retVal.AppendFormat("Certificate Name:   {1}{0}{0}", cr, StringUtil.ParseValue(cert.Subject, "CN=", ',', 1));
-            
+            retVal.Append($"Location:           {location}{cr}");
+            retVal.Append($"Certificate Name:   {subject}{cr}{cr}");
+
             retVal.Append($"Has Private Key:    {cert.HasPrivateKey}{cr}{cr}");
             retVal.Append($"Not Before:         {cert.NotBefore}{cr}");
             retVal.Append($"Not After:          {cert.NotAfter}{cr}{cr}");
