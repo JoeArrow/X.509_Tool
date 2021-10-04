@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CertRequest.cs" />
+    <Compile Include="OutputLengths.cs" />
     <Compile Include="X_509_CertTool.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -134,6 +134,7 @@ namespace X._509_Tool
             var retVal = new StringBuilder();
 
             var certCount = 0;
+            var len = new OutputLengths();
             var storeName = ((x509StoreName)cbStoreName.SelectedItem).storeName;
             var location = ((x509StoreLocation)cbStoreLocation.SelectedItem).storeLocation;
             var store = new X509Store(storeName, location);
@@ -142,14 +143,30 @@ namespace X._509_Tool
 
             foreach(var cert in store.Certificates)
             {
-                var valid = cert.Verify();
-
-                if(!cbValid.Checked || (cbValid.Checked && valid))
+                if(!cbValid.Checked || (cbValid.Checked && cert.Verify()))
                 {
-                    certCount++;
-                    retVal.Append(GetDisplayString(cert, $"{location.ToString()}.{storeName.ToString()}", cert.Verify()));
+                    var subject = StringUtil.ParseValue(cert.Subject, "CN=", ',', 1);
+
+                    len.SubjectLen = Math.Max(len.SubjectLen, subject.Length);
+                    len.IssuerLen = Math.Max(len.IssuerLen, cert.Issuer.Length);
+                    len.ThumbprintLen = Math.Max(len.ThumbprintLen, cert.Thumbprint.Length);
+                    len.ExpDateLen = Math.Max(len.ExpDateLen, cert.NotAfter.ToString().Length);
                 }
             }
+
+            retVal.Append($"{"Subject".PadRight(len.SubjectLen)} | {"Expire Date".PadRight(len.ExpDateLen)} | {"Thumbprint".PadRight(len.ThumbprintLen)} | {"Issuer"}{cr}");
+            retVal.AppendFormat($"{new string('-', len.Total + 9)}{cr}");
+
+            foreach(var cert in store.Certificates)
+            {
+                if(!cbValid.Checked || (cbValid.Checked && cert.Verify()))
+                {
+                    certCount++;
+                    retVal.Append(GetCompactDisplayString(cert, $"{location.ToString()}.{storeName.ToString()}", len));
+                }
+            }
+
+            store.Close();
 
             lblCertsFound.Text = certCount.ToString();
 
@@ -237,6 +254,21 @@ namespace X._509_Tool
             retVal.Append($"Subject (DN):       {cert.Subject}{cr}");
 
             retVal.AppendFormat("{0}{1}{0}{0}", cr, new string('-', 50));
+
+            return retVal.ToString();
+        }
+
+        // ------------------------------------------------
+
+        private string GetCompactDisplayString(X509Certificate2 cert, string location, OutputLengths len)
+        {
+            var retVal = new StringBuilder();
+            var subject = StringUtil.ParseValue(cert.Subject, "CN=", ',', 1);
+
+            retVal.Append($"{subject.PadRight(len.SubjectLen)} | " +
+                          $"{cert.NotAfter.ToString().PadRight(len.ExpDateLen)} | " +
+                          $"{cert.Thumbprint.PadRight(len.ThumbprintLen)} | " +
+                          $"{cert.Issuer}{cr}");
 
             return retVal.ToString();
         }
