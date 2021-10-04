@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CertSearchForm));
             this.btnSearch = new System.Windows.Forms.Button();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.cbFindAll = new System.Windows.Forms.CheckBox();
             this.cbUnknown = new System.Windows.Forms.CheckBox();
             this.tbSearchValue = new System.Windows.Forms.TextBox();
             this.cbStoreLocation = new System.Windows.Forms.ComboBox();
@@ -75,6 +76,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.cbFindAll);
             this.splitContainer1.Panel1.Controls.Add(this.cbUnknown);
             this.splitContainer1.Panel1.Controls.Add(this.tbSearchValue);
             this.splitContainer1.Panel1.Controls.Add(this.cbStoreLocation);
@@ -93,15 +95,27 @@
             this.splitContainer1.SplitterDistance = 367;
             this.splitContainer1.TabIndex = 1;
             // 
+            // cbFindAll
+            // 
+            this.cbFindAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbFindAll.AutoSize = true;
+            this.cbFindAll.Location = new System.Drawing.Point(263, 133);
+            this.cbFindAll.Name = "cbFindAll";
+            this.cbFindAll.Size = new System.Drawing.Size(99, 17);
+            this.cbFindAll.TabIndex = 10;
+            this.cbFindAll.Text = "Find All in Store";
+            this.cbFindAll.UseVisualStyleBackColor = true;
+            this.cbFindAll.CheckedChanged += new System.EventHandler(this.OnFindAllSelection);
+            // 
             // cbUnknown
             // 
             this.cbUnknown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbUnknown.AutoSize = true;
-            this.cbUnknown.Location = new System.Drawing.Point(304, 133);
+            this.cbUnknown.Location = new System.Drawing.Point(263, 195);
             this.cbUnknown.Name = "cbUnknown";
-            this.cbUnknown.Size = new System.Drawing.Size(60, 17);
+            this.cbUnknown.Size = new System.Drawing.Size(96, 17);
             this.cbUnknown.TabIndex = 9;
-            this.cbUnknown.Text = "Find All";
+            this.cbUnknown.Text = "Find Anywhere";
             this.cbUnknown.UseVisualStyleBackColor = true;
             this.cbUnknown.CheckedChanged += new System.EventHandler(this.OnUnknownSelection);
             // 
@@ -184,7 +198,7 @@
             // 
             this.cbValid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbValid.AutoSize = true;
-            this.cbValid.Location = new System.Drawing.Point(264, 258);
+            this.cbValid.Location = new System.Drawing.Point(263, 258);
             this.cbValid.Name = "cbValid";
             this.cbValid.Size = new System.Drawing.Size(100, 17);
             this.cbValid.TabIndex = 0;
@@ -246,7 +260,7 @@
             // aboutToolStripMenuItem1
             // 
             this.aboutToolStripMenuItem1.Name = "aboutToolStripMenuItem1";
-            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem1.Text = "&About";
             this.aboutToolStripMenuItem1.Click += new System.EventHandler(this.OnAbout);
             // 
@@ -299,6 +313,7 @@
         private System.Windows.Forms.CheckBox cbUnknown;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem1;
+        private System.Windows.Forms.CheckBox cbFindAll;
     }
 }
 

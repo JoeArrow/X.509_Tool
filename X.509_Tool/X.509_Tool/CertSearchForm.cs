@@ -30,7 +30,11 @@ namespace X._509_Tool
             lblCertsFound.Text = "0";
             Cursor = Cursors.WaitCursor;
 
-            if(cbUnknown.Checked)
+            if(cbFindAll.Checked)
+            {
+                tbOut.Text = FindAll();
+            }
+            else if(cbUnknown.Checked)
             {
                 tbOut.Text = Find();
             }
@@ -52,6 +56,12 @@ namespace X._509_Tool
         }
 
         // ------------------------------------------------
+        /// <summary>
+        ///     Search is called from the Button Click 
+        ///     OnSearch() when the Fin Anywhere checkbox
+        ///     (cbUnknown) is NOT checked.
+        /// </summary>
+        /// <returns></returns>
 
         private string Search(CertRequest req)
         {
@@ -71,7 +81,7 @@ namespace X._509_Tool
 
                 foreach(var cert in certs)
                 {
-                    text.Append(GetDisplayString(cert, $"{req.storeLocation.ToString()}.{req.storeName.ToString()}"));
+                    text.Append(GetDisplayString(cert, $"{req.storeLocation.ToString()}.{req.storeName.ToString()}", cert.Verify()));
                 }
 
                 retVal = text.ToString();
@@ -85,6 +95,13 @@ namespace X._509_Tool
         }
 
         // ------------------------------------------------
+        /// <summary>
+        ///     Find is called from the Button Click 
+        ///     OnSearch() when the Fin Anywhere checkbox
+        ///     (cbUnknown) is checked. It eventually calls 
+        ///     Search().
+        /// </summary>
+        /// <returns></returns>
 
         private string Find()
         {
@@ -106,6 +123,35 @@ namespace X._509_Tool
                     retVal.Append(Search(req));
                 }
             }
+
+            return retVal.ToString();
+        }
+
+        // ------------------------------------------------
+
+        private string FindAll()
+        {
+            var retVal = new StringBuilder();
+
+            var certCount = 0;
+            var storeName = ((x509StoreName)cbStoreName.SelectedItem).storeName;
+            var location = ((x509StoreLocation)cbStoreLocation.SelectedItem).storeLocation;
+            var store = new X509Store(storeName, location);
+
+            store.Open(OpenFlags.ReadOnly);
+
+            foreach(var cert in store.Certificates)
+            {
+                var valid = cert.Verify();
+
+                if(!cbValid.Checked || (cbValid.Checked && valid))
+                {
+                    certCount++;
+                    retVal.Append(GetDisplayString(cert, $"{location.ToString()}.{storeName.ToString()}", cert.Verify()));
+                }
+            }
+
+            lblCertsFound.Text = certCount.ToString();
 
             return retVal.ToString();
         }
@@ -153,21 +199,34 @@ namespace X._509_Tool
 
         // ------------------------------------------------
 
+        private void OnFindAllSelection(object sender, EventArgs e)
+        {
+            cbUnknown.Checked = false;
+            cbUnknown.Enabled = !cbFindAll.Checked;
+            cbSearchType.Enabled = !cbFindAll.Checked;
+            tbSearchValue.Enabled = !cbFindAll.Checked;
+        }
+
+        // ------------------------------------------------
+
         private void OnUnknownSelection(object sender, EventArgs e)
         {
+            cbFindAll.Checked = false;
+            cbFindAll.Enabled = !cbUnknown.Checked;
             cbStoreName.Enabled = !cbUnknown.Checked;
             cbStoreLocation.Enabled = !cbUnknown.Checked;
         }
 
         // ------------------------------------------------
 
-        private string GetDisplayString(X509Certificate2 cert, string location)
+        private string GetDisplayString(X509Certificate2 cert, string location, bool isValid)
         {
             var retVal = new StringBuilder();
             var subject = StringUtil.ParseValue(cert.Subject, "CN=", ',', 1);
 
             retVal.Append($"Location:           {location}{cr}");
-            retVal.Append($"Certificate Name:   {subject}{cr}{cr}");
+            retVal.Append($"Certificate Name:   {subject}{cr}");
+            retVal.Append($"Is Valid:           {isValid}{cr}{cr}");
 
             retVal.Append($"Has Private Key:    {cert.HasPrivateKey}{cr}{cr}");
             retVal.Append($"Not Before:         {cert.NotBefore}{cr}");
