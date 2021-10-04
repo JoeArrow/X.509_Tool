@@ -12,6 +12,8 @@ namespace X._509_Tool
 {
     public partial class CertSearchForm : Form
     {
+        private readonly string cr = $"{Environment.NewLine}";
+
         public CertSearchForm()
         {
             InitializeComponent();
@@ -163,17 +165,17 @@ namespace X._509_Tool
         {
             var retVal = new StringBuilder();
 
-            retVal.AppendFormat("Certificate Name:   {1}{0}{0}", Environment.NewLine, StringUtil.ParseValue(cert.Subject, "CN=", ',', 1));
+            retVal.AppendFormat("Certificate Name:   {1}{0}{0}", cr, StringUtil.ParseValue(cert.Subject, "CN=", ',', 1));
             
-            retVal.Append($"Has Private Key:    {cert.HasPrivateKey}{Environment.NewLine}{Environment.NewLine}");
-            retVal.Append($"Not Before:         {cert.NotBefore}{Environment.NewLine}");
-            retVal.Append($"Not After:          {cert.NotAfter}{Environment.NewLine}{Environment.NewLine}");
-            retVal.Append($"Serial Number:      {cert.SerialNumber}{Environment.NewLine}");
-            retVal.Append($"Thumbprint:         {cert.Thumbprint}{Environment.NewLine}{Environment.NewLine}");
-            retVal.Append($"Issuer:             {cert.Issuer}{Environment.NewLine}");
-            retVal.Append($"Subject:            {cert.Subject}{Environment.NewLine}");
+            retVal.Append($"Has Private Key:    {cert.HasPrivateKey}{cr}{cr}");
+            retVal.Append($"Not Before:         {cert.NotBefore}{cr}");
+            retVal.Append($"Not After:          {cert.NotAfter}{cr}{cr}");
+            retVal.Append($"Serial Number:      {cert.SerialNumber}{cr}");
+            retVal.Append($"Thumbprint:         {cert.Thumbprint}{cr}{cr}");
+            retVal.Append($"Issuer:             {cert.Issuer}{cr}");
+            retVal.Append($"Subject (DN):       {cert.Subject}{cr}");
 
-            retVal.AppendFormat("{0}{1}{0}{0}", Environment.NewLine, new string('-', 50));
+            retVal.AppendFormat("{0}{1}{0}{0}", cr, new string('-', 50));
 
             return retVal.ToString();
         }
