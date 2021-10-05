@@ -43,7 +43,7 @@ namespace X._509_Tool
                 var req = new CertRequest()
                 {
                     validOnly = cbValid.Checked,
-                    searchValue = tbSearchValue.Text,
+                    searchValue = tbSearchValue.Text.Trim(),
                     storeName = ((x509StoreName)cbStoreName.SelectedItem).storeName,
                     searchType = ((x509SearchType)cbSearchType.SelectedItem).searchType,
                     storeLocation = ((x509StoreLocation)cbStoreLocation.SelectedItem).storeLocation,
@@ -114,7 +114,7 @@ namespace X._509_Tool
                     var req = new CertRequest()
                     {
                         validOnly = cbValid.Checked,
-                        searchValue = tbSearchValue.Text,
+                        searchValue = tbSearchValue.Text.Trim(),
                         storeName = ((x509StoreName)storeName).storeName,
                         searchType = ((x509SearchType)cbSearchType.SelectedItem).searchType,
                         storeLocation = ((x509StoreLocation)storeLocation).storeLocation,
