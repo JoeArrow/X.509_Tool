@@ -58,7 +58,7 @@ namespace X._509_Tool
         // ------------------------------------------------
         /// <summary>
         ///     Search is called from the Button Click 
-        ///     OnSearch() when the Fin Anywhere checkbox
+        ///     OnSearch() when the Find Anywhere checkbox
         ///     (cbUnknown) is NOT checked.
         /// </summary>
         /// <returns></returns>
@@ -154,7 +154,7 @@ namespace X._509_Tool
                 }
             }
 
-            retVal.Append($"{"Subject".PadRight(len.SubjectLen)} | " +
+            retVal.Append($"{"Subject (Parsed)".PadRight(len.SubjectLen)} | " +
                           $"{"Expire Date".PadRight(len.ExpDateLen)} | " +
                           $"{"Thumbprint".PadRight(len.ThumbprintLen)} | " +
                           $"{"Issuer"}{cr}");
@@ -247,17 +247,22 @@ namespace X._509_Tool
 
             retVal.Append($"Location:           {location}{cr}");
             retVal.Append($"Certificate Name:   {subject}{cr}");
+            retVal.Append($"Friendly Name:      {cert.FriendlyName}{cr}");
+            retVal.Append($"Version:            {cert.Version}{cr}");
             retVal.Append($"Is Valid:           {isValid}{cr}{cr}");
 
             retVal.Append($"Has Private Key:    {cert.HasPrivateKey}{cr}{cr}");
+
             retVal.Append($"Not Before:         {cert.NotBefore}{cr}");
             retVal.Append($"Not After:          {cert.NotAfter}{cr}{cr}");
+
             retVal.Append($"Serial Number:      {cert.SerialNumber}{cr}");
             retVal.Append($"Thumbprint:         {cert.Thumbprint}{cr}{cr}");
+
             retVal.Append($"Issuer:             {cert.Issuer}{cr}");
             retVal.Append($"Subject (DN):       {cert.Subject}{cr}");
 
-            retVal.AppendFormat("{0}{1}{0}{0}", cr, new string('-', 50));
+            retVal.AppendFormat("{0}{1}{0}{0}", cr, new string('-', 90));
 
             return retVal.ToString();
         }

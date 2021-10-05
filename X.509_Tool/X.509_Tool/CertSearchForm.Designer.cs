@@ -71,7 +71,7 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(0, 30);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 27);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -91,7 +91,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tbOut);
-            this.splitContainer1.Size = new System.Drawing.Size(952, 382);
+            this.splitContainer1.Size = new System.Drawing.Size(952, 385);
             this.splitContainer1.SplitterDistance = 367;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -99,7 +99,7 @@
             // 
             this.cbFindAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbFindAll.AutoSize = true;
-            this.cbFindAll.Location = new System.Drawing.Point(263, 133);
+            this.cbFindAll.Location = new System.Drawing.Point(263, 107);
             this.cbFindAll.Name = "cbFindAll";
             this.cbFindAll.Size = new System.Drawing.Size(99, 17);
             this.cbFindAll.TabIndex = 10;
@@ -111,7 +111,7 @@
             // 
             this.cbUnknown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbUnknown.AutoSize = true;
-            this.cbUnknown.Location = new System.Drawing.Point(263, 195);
+            this.cbUnknown.Location = new System.Drawing.Point(263, 169);
             this.cbUnknown.Name = "cbUnknown";
             this.cbUnknown.Size = new System.Drawing.Size(96, 17);
             this.cbUnknown.TabIndex = 9;
@@ -123,7 +123,7 @@
             // 
             this.tbSearchValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbSearchValue.Location = new System.Drawing.Point(65, 47);
+            this.tbSearchValue.Location = new System.Drawing.Point(65, 21);
             this.tbSearchValue.Name = "tbSearchValue";
             this.tbSearchValue.Size = new System.Drawing.Size(299, 20);
             this.tbSearchValue.TabIndex = 8;
@@ -133,7 +133,7 @@
             this.cbStoreLocation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbStoreLocation.FormattingEnabled = true;
-            this.cbStoreLocation.Location = new System.Drawing.Point(65, 168);
+            this.cbStoreLocation.Location = new System.Drawing.Point(65, 142);
             this.cbStoreLocation.Name = "cbStoreLocation";
             this.cbStoreLocation.Size = new System.Drawing.Size(299, 21);
             this.cbStoreLocation.TabIndex = 7;
@@ -143,7 +143,7 @@
             this.cbSearchType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbSearchType.FormattingEnabled = true;
-            this.cbSearchType.Location = new System.Drawing.Point(65, 231);
+            this.cbSearchType.Location = new System.Drawing.Point(65, 205);
             this.cbSearchType.Name = "cbSearchType";
             this.cbSearchType.Size = new System.Drawing.Size(299, 21);
             this.cbSearchType.TabIndex = 6;
@@ -153,7 +153,7 @@
             this.cbStoreName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cbStoreName.FormattingEnabled = true;
-            this.cbStoreName.Location = new System.Drawing.Point(65, 106);
+            this.cbStoreName.Location = new System.Drawing.Point(65, 80);
             this.cbStoreName.Name = "cbStoreName";
             this.cbStoreName.Size = new System.Drawing.Size(299, 21);
             this.cbStoreName.TabIndex = 5;
@@ -161,7 +161,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 152);
+            this.label4.Location = new System.Drawing.Point(5, 126);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 13);
             this.label4.TabIndex = 4;
@@ -170,7 +170,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 215);
+            this.label3.Location = new System.Drawing.Point(5, 189);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 3;
@@ -179,7 +179,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 90);
+            this.label2.Location = new System.Drawing.Point(5, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
             this.label2.TabIndex = 2;
@@ -188,7 +188,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 30);
+            this.label1.Location = new System.Drawing.Point(5, 4);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 1;
@@ -198,7 +198,7 @@
             // 
             this.cbValid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbValid.AutoSize = true;
-            this.cbValid.Location = new System.Drawing.Point(263, 258);
+            this.cbValid.Location = new System.Drawing.Point(263, 232);
             this.cbValid.Name = "cbValid";
             this.cbValid.Size = new System.Drawing.Size(100, 17);
             this.cbValid.TabIndex = 0;
@@ -215,7 +215,7 @@
             this.tbOut.Multiline = true;
             this.tbOut.Name = "tbOut";
             this.tbOut.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbOut.Size = new System.Drawing.Size(577, 378);
+            this.tbOut.Size = new System.Drawing.Size(577, 381);
             this.tbOut.TabIndex = 0;
             this.tbOut.WordWrap = false;
             // 
