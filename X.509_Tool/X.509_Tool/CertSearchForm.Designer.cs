@@ -92,14 +92,14 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tbOut);
             this.splitContainer1.Size = new System.Drawing.Size(952, 385);
-            this.splitContainer1.SplitterDistance = 367;
+            this.splitContainer1.SplitterDistance = 368;
             this.splitContainer1.TabIndex = 1;
             // 
             // cbFindAll
             // 
             this.cbFindAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbFindAll.AutoSize = true;
-            this.cbFindAll.Location = new System.Drawing.Point(263, 107);
+            this.cbFindAll.Location = new System.Drawing.Point(264, 107);
             this.cbFindAll.Name = "cbFindAll";
             this.cbFindAll.Size = new System.Drawing.Size(99, 17);
             this.cbFindAll.TabIndex = 10;
@@ -111,7 +111,7 @@
             // 
             this.cbUnknown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbUnknown.AutoSize = true;
-            this.cbUnknown.Location = new System.Drawing.Point(263, 169);
+            this.cbUnknown.Location = new System.Drawing.Point(264, 169);
             this.cbUnknown.Name = "cbUnknown";
             this.cbUnknown.Size = new System.Drawing.Size(96, 17);
             this.cbUnknown.TabIndex = 9;
@@ -125,7 +125,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbSearchValue.Location = new System.Drawing.Point(65, 21);
             this.tbSearchValue.Name = "tbSearchValue";
-            this.tbSearchValue.Size = new System.Drawing.Size(299, 20);
+            this.tbSearchValue.Size = new System.Drawing.Size(300, 20);
             this.tbSearchValue.TabIndex = 8;
             // 
             // cbStoreLocation
@@ -135,7 +135,7 @@
             this.cbStoreLocation.FormattingEnabled = true;
             this.cbStoreLocation.Location = new System.Drawing.Point(65, 142);
             this.cbStoreLocation.Name = "cbStoreLocation";
-            this.cbStoreLocation.Size = new System.Drawing.Size(299, 21);
+            this.cbStoreLocation.Size = new System.Drawing.Size(300, 21);
             this.cbStoreLocation.TabIndex = 7;
             // 
             // cbSearchType
@@ -145,7 +145,7 @@
             this.cbSearchType.FormattingEnabled = true;
             this.cbSearchType.Location = new System.Drawing.Point(65, 205);
             this.cbSearchType.Name = "cbSearchType";
-            this.cbSearchType.Size = new System.Drawing.Size(299, 21);
+            this.cbSearchType.Size = new System.Drawing.Size(300, 21);
             this.cbSearchType.TabIndex = 6;
             // 
             // cbStoreName
@@ -155,7 +155,7 @@
             this.cbStoreName.FormattingEnabled = true;
             this.cbStoreName.Location = new System.Drawing.Point(65, 80);
             this.cbStoreName.Name = "cbStoreName";
-            this.cbStoreName.Size = new System.Drawing.Size(299, 21);
+            this.cbStoreName.Size = new System.Drawing.Size(300, 21);
             this.cbStoreName.TabIndex = 5;
             // 
             // label4
@@ -198,12 +198,13 @@
             // 
             this.cbValid.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbValid.AutoSize = true;
-            this.cbValid.Location = new System.Drawing.Point(263, 232);
+            this.cbValid.Location = new System.Drawing.Point(264, 232);
             this.cbValid.Name = "cbValid";
             this.cbValid.Size = new System.Drawing.Size(100, 17);
             this.cbValid.TabIndex = 0;
             this.cbValid.Text = "Valid Certs Only";
             this.cbValid.UseVisualStyleBackColor = true;
+            this.cbValid.CheckedChanged += new System.EventHandler(this.OnValidOnlyChange);
             // 
             // tbOut
             // 
@@ -215,7 +216,7 @@
             this.tbOut.Multiline = true;
             this.tbOut.Name = "tbOut";
             this.tbOut.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbOut.Size = new System.Drawing.Size(577, 381);
+            this.tbOut.Size = new System.Drawing.Size(576, 381);
             this.tbOut.TabIndex = 0;
             this.tbOut.WordWrap = false;
             // 

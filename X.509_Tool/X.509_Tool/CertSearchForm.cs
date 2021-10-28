@@ -25,6 +25,13 @@ namespace X._509_Tool
 
         // ------------------------------------------------
 
+        private void OnValidOnlyChange(object sender, EventArgs e)
+        {
+            OnSearch(sender, e);
+        }
+
+        // ------------------------------------------------
+
         private void OnSearch(object sender, EventArgs e)
         {
             lblCertsFound.Text = "0";
