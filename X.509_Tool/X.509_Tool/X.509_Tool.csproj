@@ -70,8 +70,17 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AflacCommonObjects, Version=3.1.6541.24119, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AflacCommonObjects_4.5.1-AnyCPU.3.1.6541.24119\lib\net451\AflacCommonObjects.dll</HintPath>
+    <Reference Include="AflacCommonObjects, Version=3.5.7971.28728, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AflacCommonObjects.3.5.7971.28728\lib\net451\AflacCommonObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="AntiXssLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\AntiXssLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="HashTool_Lib, Version=1.0.7936.27210, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HashTool_Lib.1.0.7936.27210\lib\net461\HashTool_Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlSanitizationLibrary, Version=4.3.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AntiXSS.4.3.0\lib\net40\HtmlSanitizationLibrary.dll</HintPath>
     </Reference>
     <Reference Include="JoeWare_Lib, Version=1.0.6395.26829, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\JoeWare_Lib.1.0.6395.26829\lib\net451\JoeWare_Lib.dll</HintPath>
@@ -89,9 +98,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CertSearchForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="CertSearchForm.cs" />
     <Compile Include="CertSearchForm.Designer.cs">
       <DependentUpon>CertSearchForm.cs</DependentUpon>
     </Compile>
