@@ -7,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using X_509_Lib;
 using AboutJoeWare_Lib;
 using AflacCommonObjects;
+using System.Security.Cryptography;
 
 namespace X._509_Tool
 {
@@ -21,6 +22,9 @@ namespace X._509_Tool
             SetupStoreName();
             SetupSearchType();
             SetupStoreLocation();
+
+            Size = Properties.Settings.Default.Size;
+            splitContainer1.SplitterDistance = Properties.Settings.Default.SplitterDefault;
         }
 
         // ------------------------------------------------
@@ -247,7 +251,24 @@ namespace X._509_Tool
 
         // ------------------------------------------------
 
-        private string GetDisplayString(X509Certificate2 cert, string location, bool isValid)
+        private void OnFormResize(object sender, EventArgs e)
+        {
+            splitContainer1.SplitterDistance = 365;
+        }
+
+        // ------------------------------------------------
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.Size = Size;
+            Properties.Settings.Default.SplitterDefault = splitContainer1.SplitterDistance;
+
+            Properties.Settings.Default.Save();
+        }
+
+        // ------------------------------------------------
+
+        private string GetDisplayString(X509Certificate2 cert, string location, bool verified)
         {
             var retVal = new StringBuilder();
             var subject = StringUtil.ParseValue(cert.Subject, "CN=", ',', 1);
@@ -256,7 +277,7 @@ namespace X._509_Tool
             retVal.Append($"Certificate Name:   {subject}{cr}");
             retVal.Append($"Friendly Name:      {cert.FriendlyName}{cr}");
             retVal.Append($"Version:            {cert.Version}{cr}");
-            retVal.Append($"Is Valid:           {isValid}{cr}{cr}");
+            retVal.Append($"Verifiable:         {verified}{cr}{cr}");
 
             retVal.Append($"Has Private Key:    {cert.HasPrivateKey}{cr}{cr}");
 
@@ -267,7 +288,22 @@ namespace X._509_Tool
             retVal.Append($"Thumbprint:         {cert.Thumbprint}{cr}{cr}");
 
             retVal.Append($"Issuer:             {cert.Issuer}{cr}");
-            retVal.Append($"Subject (DN):       {cert.Subject}{cr}");
+            retVal.Append($"Subject (DN):       {cert.Subject}{cr}{cr}");
+
+            foreach(var ext in cert.Extensions)
+            {
+                if(ext.Oid.FriendlyName == "Enhanced Key Usage")
+                {
+                    var ext2 = (X509EnhancedKeyUsageExtension)ext;
+
+                    OidCollection oids = ext2.EnhancedKeyUsages;
+
+                    foreach(Oid oid in oids)
+                    {
+                        retVal.Append($"Enhanced Usage:     {oid.FriendlyName} ({oid.Value}){cr}");
+                    }
+                }
+            }
 
             retVal.AppendFormat("{0}{1}{0}{0}", cr, new string('-', 90));
 
