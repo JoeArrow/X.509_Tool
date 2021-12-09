@@ -14,7 +14,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace X_509_Lib
 {
-    public class X_509_CertTool
+    public static class X_509_CertTool
     {
         // ------------------------------------------------
         /// <summary>
@@ -123,52 +123,6 @@ namespace X_509_Lib
 
             return retVal;
         }
-
-        //// ------------------------------------------------
-        ///// <summary>
-        /////     Retrieves a List of Certificates from the
-        /////     identified Certificate Store, with the 
-        /////     identified criteria
-        ///// </summary>
-        ///// <param name="req"></param>
-        ///// <returns></returns>
-
-        //public static List<IX509Certificate2> FindCertificates(CertRequest req, X509_DependencyDto depends = null)
-        //{
-        //    depends = depends ?? new X509_DependencyDto();
-        //    var factory = depends.X509StoreFactory ?? new X509StoreFactory();
-
-        //    var retVal = new List<IX509Certificate2>();
-
-        //    var store = factory.Create(req.storeName, req.storeLocation);
-
-        //    // --------------------------
-        //    // Open the Certificate Store
-
-        //    store.Open(OpenFlags.ReadOnly);
-
-        //    var searchValue = FixupSearchValue(req.searchType, req.searchValue);
-
-        //    // ------------------------------------------
-        //    // Find all Certificates meeting our criteria
-
-        //    var certs = store.Certificates.Find(req.searchType, searchValue, req.validOnly);
-
-        //    // ---------------------------
-        //    // Close the Certificate Store
-
-        //    store.Close();
-
-        //    // -----------------------------------------------
-        //    // Add each found certificate to a List for return
-
-        //    foreach(X509Certificate2 cert in certs)
-        //    {
-        //        retVal.Add(new X509Certificate2Wrap(cert));
-        //    }
-
-        //    return retVal;
-        //}
 
         // ------------------------------------------------
         /// <summary>

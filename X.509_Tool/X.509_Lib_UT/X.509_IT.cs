@@ -115,7 +115,6 @@ namespace X._509_Lib_IT
         [TestMethod]
         [DataRow("{'StoreName':'My','searchType':'FindBySubjectName','storeLocation':'LocalMachine','searchValue':'5CG0178WT2'}")]
         [DataRow("{'StoreName':'My','searchType':'FindBySubjectName','storeLocation':'LocalMachine','searchValue':'5CG0178WT2.hq.aflac.com'}")]
-        [DataRow("{'StoreName':'My','searchType':'FindByThumbprint','storeLocation':'CurrentUser','validOnly':false,'searchValue':'f294e3e2ceb7206ef647b9d647a3132e7a4803cf'}")]
         [DataRow("{'StoreName':'My','searchType':'FindByThumbprint','storeLocation':'CurrentUser','validOnly':false,'searchValue':'b3ab70cb6d9846c03dda38eac707195f1c57e899'}")]
         public void Find_X_509_Retrieves_A_Certificate_List(string reqJson)
         {

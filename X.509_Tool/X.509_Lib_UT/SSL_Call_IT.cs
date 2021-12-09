@@ -76,7 +76,7 @@ namespace X._509_Lib_IT
         [DataRow("Items", "1BBA4482B6AF2FB84B81AC578A0C4739", "https://localhost/desknet_consumer_api/", 
                  "/A-10643?StateCode=AL,AK&amp;WritingNo=02SNG&amp;ItemSource=WebOrdering",
                  "{'StoreName':'My', 'searchType':'FindByThumbprint', 'storeLocation':'CurrentUser', " +
-                  "'validOnly':false, 'searchValue':'f294e3e2ceb7206ef647b9d647a3132e7a4803cf'}")]
+                  "'validOnly':false, 'searchValue':'b3ab70cb6d9846c03dda38eac707195f1c57e899'}")]
         public void SSL_Call_With_The_Wrong_Cert_X_509_Tool_Fails_To_Complete_The_SSL_Call(string methodPath, string serial, string baseUri, 
                                                                                            string queryString, string reqJson)
         {
