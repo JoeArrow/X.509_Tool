@@ -14,6 +14,11 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace X_509_Lib
 {
+    /// ---------------------------------------------------
+    /// <summary>
+    ///     A Harness for using and exercising the X509_Lib
+    /// </summary>
+
     public static class X_509_CertTool
     {
         // ------------------------------------------------
@@ -48,7 +53,8 @@ namespace X_509_Lib
 
             return sb.ToString();
         }
-        // ------------------------------------------------
+
+        /// -----------------------------------------------
         /// <summary>
         ///     Used to read the details from a Certificate 
         ///     File
@@ -81,7 +87,7 @@ namespace X_509_Lib
             return sb.ToString();
         }
 
-        // ------------------------------------------------
+        /// -----------------------------------------------
         /// <summary>
         ///     Retrieves a List of Certificates from the
         ///     identified Certificate Store, with the 
@@ -124,7 +130,7 @@ namespace X_509_Lib
             return retVal;
         }
 
-        // ------------------------------------------------
+        /// -----------------------------------------------
         /// <summary>
         ///     Returns the string with everything except 
         ///     alpha-numeric characters removed.
