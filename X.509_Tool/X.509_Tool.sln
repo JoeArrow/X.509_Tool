@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		CodeCoverage.runsettings = CodeCoverage.runsettings
 		Notes.txt = Notes.txt
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{B0E5BB75-891A-47D2-B0CA-5E4B8D809CD9}"
@@ -44,20 +45,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {617AB462-33AE-4198-9C25-07ED73C9988B}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://tfs.aflac.com:8080/tfs/globalcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = X.509_Lib\\X.509_Lib.csproj
-		SccProjectName1 = X.509_Lib
-		SccLocalPath1 = X.509_Lib
-		SccProjectUniqueName2 = X.509_Tool\\X.509_Tool.csproj
-		SccProjectName2 = X.509_Tool
-		SccLocalPath2 = X.509_Tool
-		SccProjectUniqueName3 = X.509_Lib_UT\\X.509_Lib_IT.csproj
-		SccProjectName3 = X.509_Lib_UT
-		SccLocalPath3 = X.509_Lib_UT
 	EndGlobalSection
 EndGlobal
