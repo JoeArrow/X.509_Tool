@@ -89,7 +89,7 @@ namespace SecurityStringExtensions_UT
         // ------------------------------------------------
 
         [TestMethod]
-        public void Encryption_Security_String_Extensions_Encrypts_an_Empty_String_Throws_An_Exception()
+        public void Encryption_Security_String_Extensions_Encrypts_an_Empty_String_Throws()
         {
             // -------
             // Arrange
@@ -129,9 +129,9 @@ namespace SecurityStringExtensions_UT
         // ------------------------------------------------
 
         [TestMethod]
-        [DataRow("jarr0w@afl", "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAACAepvX1btAR9P4/cHkhoSeAAAAAASAAACgAAAAEAAAADF2VU0wgbm4bGQzDZ2P/EcYAAAA5NiHsnXPGA9NxGHFoXMSU8lwBABXvkLwFAAAAIJWsu/TCZ1tG7L6SYkHRSnwa32i", "")]
-        [DataRow("this is a password", "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAAAQWZkCWteWDQiPDxNqNJEXAAAAAASAAACgAAAAEAAAAJ+CrnFVJgnfR0kHFWpdVrwoAAAAY90PxAjUuisOgdcwd7+7hlPcFO+WzbLC+Wq9UHdRnCP6ITvt0j1GLhQAAAD63uECAz0AFe5UN+CCjEsqn1hdig==", "")]
-        [DataRow("this is a password", "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAABTjfiIGQPoHIgy1TrP9MThAAAAAASAAACgAAAAEAAAADehxfAFi76+X+MlMNHdltEoAAAA5dD75DRvBvhYxuKyev1S5Yj9BICQj1OmCWSrLB0lRC8p/hkpYU/yghQAAADm2433MWJuaa10/+eqLmGy5L/Uww==", "32FDDE48-A0F3-4A92-BA60-F680F095B6BB")]
+        [DataRow("jarr0w@afl", "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAAby6gPfhe9xnDpkEAl4ijVAAAAAASAAACgAAAAEAAAAHiPqNLl+LeesM/ICTV40rIYAAAAsUJTGjIYUlXnAWzPyE7tEyZuVARnJ3KLFAAAAPmN39gyEjiOWQgIcmdHuBcp9AZU", "")]
+        [DataRow("this is a password", "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAACBl8LhZMi0PJfV/dlZ1jxxAAAAAASAAACgAAAAEAAAABXNZy3sLWVOKL2qwb3J6WwoAAAAr4aUNrtbTD6HoMi2PsYKmhr8ZVed2CDCqRgBjRx+rXLCioaIL1zTgBQAAACCZr7xGkwfp45lh34bPJGn33Llqw==", "")]
+        [DataRow("this is a password", "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAABqgE8p+JRDKzGHhGlZQDgvAAAAAASAAACgAAAAEAAAAIXLH6g3suBPX9ye6dHR/isoAAAAutXvhER0joXj6CO8B0U59kbF1s75esXhFaI67EkZwpeE+vgCh0FYVRQAAABHHe74lV2vsG20ZukfudUVzUh8cw==", "32FDDE48-A0F3-4A92-BA60-F680F095B6BB")]
         public void Decryption_Security_String_Extensions_Decrypts_an_Encrypted_String(string expected, string encryptedVal, string entropy)
         {
             // ----------------------------------------------------
@@ -170,7 +170,7 @@ namespace SecurityStringExtensions_UT
         [TestMethod]
         [DataRow("")]
         [DataRow("0BF792C6-F013-41E5-9CC0-793DA4B58428")]
-        public void Decryption_Security_String_Extensions_Decrypts_An_Empty_Encrypted_String_Throws_An_ArgumentNullException(string entropy)
+        public void Decryption_Security_String_Extensions_Decrypts_An_Empty_Encrypted_String_Throws(string entropy)
         {
             // -------
             // Arrange
@@ -235,11 +235,11 @@ namespace SecurityStringExtensions_UT
         [TestMethod]
         [DataRow("", 
                  "this is a password",
-                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAAAQWZkCWteWDQiPDxNqNJEXAAAAAASAAACgAAAAEAAAAJ+CrnFVJgnfR0kHFWpdVrwoAAAAY90PxAjUuisOgdcwd7+7hlPcFO+WzbLC+Wq9UHdRnCP6ITvt0j1GLhQAAAD63uECAz0AFe5UN+CCjEsqn1hdig==")]
+                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAACBl8LhZMi0PJfV/dlZ1jxxAAAAAASAAACgAAAAEAAAABXNZy3sLWVOKL2qwb3J6WwoAAAAr4aUNrtbTD6HoMi2PsYKmhr8ZVed2CDCqRgBjRx+rXLCioaIL1zTgBQAAACCZr7xGkwfp45lh34bPJGn33Llqw==")]
 
         [DataRow("32FDDE48-A0F3-4A92-BA60-F680F095B6BB",
                  "this is a password",
-                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAABTjfiIGQPoHIgy1TrP9MThAAAAAASAAACgAAAAEAAAADehxfAFi76+X+MlMNHdltEoAAAA5dD75DRvBvhYxuKyev1S5Yj9BICQj1OmCWSrLB0lRC8p/hkpYU/yghQAAADm2433MWJuaa10/+eqLmGy5L/Uww==")]
+                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAABqgE8p+JRDKzGHhGlZQDgvAAAAAASAAACgAAAAEAAAAIXLH6g3suBPX9ye6dHR/isoAAAAutXvhER0joXj6CO8B0U59kbF1s75esXhFaI67EkZwpeE+vgCh0FYVRQAAABHHe74lV2vsG20ZukfudUVzUh8cw==")]
         public void DecryptToSecureString_Security_String_Extensions_Decrypts_an_Encrypted_SecureString_Object(string entropy, string expected, string testValue)
         {
             // ---
@@ -261,7 +261,7 @@ namespace SecurityStringExtensions_UT
         // ------------------------------------------------
 
         [TestMethod]
-        public void DecryptToSecureString_Security_String_Extensions_Decrypts_an_Empty_SecureString_Object_Throws_An_Exception()
+        public void DecryptToSecureString_Security_String_Extensions_Decrypts_an_Empty_SecureString_Object_Throws()
         {
             // -------
             // Arrange
@@ -278,16 +278,16 @@ namespace SecurityStringExtensions_UT
 
         [TestMethod]
         [DataRow(false,
-                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAACTO4HWsndsUdHeyvw573D/AAAAAASAAACgAAAAEAAAAFGodJgMFe9EwclV/hrg5xooAAAA1BOlyAOnqC7HDGv7CuU9tMtSnvKA2n8aIl6oFj2a/yZolFcnxdZUDhQAAAB03ekjjDGd91ngubJ7DjuQrVDqoA==",
-                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAAAQWZkCWteWDQiPDxNqNJEXAAAAAASAAACgAAAAEAAAAJ+CrnFVJgnfR0kHFWpdVrwoAAAAY90PxAjUuisOgdcwd7+7hlPcFO+WzbLC+Wq9UHdRnCP6ITvt0j1GLhQAAAD63uECAz0AFe5UN+CCjEsqn1hdig==")]
+                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAC9gF1p+A9r6dTrHhZ1glugAAAAAASAAACgAAAAEAAAAG6atuu2uaw2+PoX67sNyiEwAAAAUEb8YJrg3Ep1PUvXqLKAAHNlnZ/P0abSt6NJ0Dx6257Av2JZFbpzQ20zP+k8oUeSFAAAAC7lQiVe7adagMQjRzvxXkJ5QtgB",
+                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAB3C0CXxCAoBvMWRF+AWWwdAAAAAASAAACgAAAAEAAAAIbzfSPB7/4Bn47HpBiXqxE4AAAAFXLNWeZ+0r1ZEpPY4usCoNMUOE7FQrJyFE6LQrupW05nf7vAFmu4iqVQRmpkZ6PbSXTEGj8+BY0UAAAA67uF41D4JbEIEvUkb3+xo/LSdBg=")]
 
         [DataRow(true,
-                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAACTO4HWsndsUdHeyvw573D/AAAAAASAAACgAAAAEAAAAFGodJgMFe9EwclV/hrg5xooAAAA1BOlyAOnqC7HDGv7CuU9tMtSnvKA2n8aIl6oFj2a/yZolFcnxdZUDhQAAAB03ekjjDGd91ngubJ7DjuQrVDqoA==",
-                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAACTO4HWsndsUdHeyvw573D/AAAAAASAAACgAAAAEAAAAFGodJgMFe9EwclV/hrg5xooAAAA1BOlyAOnqC7HDGv7CuU9tMtSnvKA2n8aIl6oFj2a/yZolFcnxdZUDhQAAAB03ekjjDGd91ngubJ7DjuQrVDqoA==")]
+                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAACBl8LhZMi0PJfV/dlZ1jxxAAAAAASAAACgAAAAEAAAABXNZy3sLWVOKL2qwb3J6WwoAAAAr4aUNrtbTD6HoMi2PsYKmhr8ZVed2CDCqRgBjRx+rXLCioaIL1zTgBQAAACCZr7xGkwfp45lh34bPJGn33Llqw==",
+                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAACBl8LhZMi0PJfV/dlZ1jxxAAAAAASAAACgAAAAEAAAABXNZy3sLWVOKL2qwb3J6WwoAAAAr4aUNrtbTD6HoMi2PsYKmhr8ZVed2CDCqRgBjRx+rXLCioaIL1zTgBQAAACCZr7xGkwfp45lh34bPJGn33Llqw==")]
 
         [DataRow(true,
-                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAAAQWZkCWteWDQiPDxNqNJEXAAAAAASAAACgAAAAEAAAAJ+CrnFVJgnfR0kHFWpdVrwoAAAAY90PxAjUuisOgdcwd7+7hlPcFO+WzbLC+Wq9UHdRnCP6ITvt0j1GLhQAAAD63uECAz0AFe5UN+CCjEsqn1hdig==",
-                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAAAQWZkCWteWDQiPDxNqNJEXAAAAAASAAACgAAAAEAAAAJ+CrnFVJgnfR0kHFWpdVrwoAAAAY90PxAjUuisOgdcwd7+7hlPcFO+WzbLC+Wq9UHdRnCP6ITvt0j1GLhQAAAD63uECAz0AFe5UN+CCjEsqn1hdig==")]
+                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAB3C0CXxCAoBvMWRF+AWWwdAAAAAASAAACgAAAAEAAAAIbzfSPB7/4Bn47HpBiXqxE4AAAAFXLNWeZ+0r1ZEpPY4usCoNMUOE7FQrJyFE6LQrupW05nf7vAFmu4iqVQRmpkZ6PbSXTEGj8+BY0UAAAA67uF41D4JbEIEvUkb3+xo/LSdBg=",
+                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAB3C0CXxCAoBvMWRF+AWWwdAAAAAASAAACgAAAAEAAAAIbzfSPB7/4Bn47HpBiXqxE4AAAAFXLNWeZ+0r1ZEpPY4usCoNMUOE7FQrJyFE6LQrupW05nf7vAFmu4iqVQRmpkZ6PbSXTEGj8+BY0UAAAA67uF41D4JbEIEvUkb3+xo/LSdBg=")]
         public void Matches_Security_String_Extensions_Compares_Two_Different_Encrypted_SecureString_Objects(bool expected, string object1, string object2)
         {
             // ---
@@ -313,13 +313,13 @@ namespace SecurityStringExtensions_UT
 
         [TestMethod]
         [DataRow("",
-                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAAAQWZkCWteWDQiPDxNqNJEXAAAAAASAAACgAAAAEAAAAJ+CrnFVJgnfR0kHFWpdVrwoAAAAY90PxAjUuisOgdcwd7+7hlPcFO+WzbLC+Wq9UHdRnCP6ITvt0j1GLhQAAAD63uECAz0AFe5UN+CCjEsqn1hdig==")]
+                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAB3C0CXxCAoBvMWRF+AWWwdAAAAAASAAACgAAAAEAAAAIbzfSPB7/4Bn47HpBiXqxE4AAAAFXLNWeZ+0r1ZEpPY4usCoNMUOE7FQrJyFE6LQrupW05nf7vAFmu4iqVQRmpkZ6PbSXTEGj8+BY0UAAAA67uF41D4JbEIEvUkb3+xo/LSdBg=")]
         
-        [DataRow("AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAACTO4HWsndsUdHeyvw573D/AAAAAASAAACgAAAAEAAAAFGodJgMFe9EwclV/hrg5xooAAAA1BOlyAOnqC7HDGv7CuU9tMtSnvKA2n8aIl6oFj2a/yZolFcnxdZUDhQAAAB03ekjjDGd91ngubJ7DjuQrVDqoA==",
+        [DataRow("AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAB3C0CXxCAoBvMWRF+AWWwdAAAAAASAAACgAAAAEAAAAIbzfSPB7/4Bn47HpBiXqxE4AAAAFXLNWeZ+0r1ZEpPY4usCoNMUOE7FQrJyFE6LQrupW05nf7vAFmu4iqVQRmpkZ6PbSXTEGj8+BY0UAAAA67uF41D4JbEIEvUkb3+xo/LSdBg=",
                  "")]
 
-        [DataRow("AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAACTO4HWsndsUdHeyvw573D/AAAAAASAAACgAAAAEAAAAFGodJgMFe9EwclV/hrg5xooAAAA1BOlyAOnqC7HDGv7CuU9tMtSnvKA2n8aIl6oFj2a/yZolFcnxdZUDhQAAAB03ekjjDGd91ngubJ7DjuQrVDqoA==",
-                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0AHectjngEe+C7MbSSJE4AQAAAACAAAAAAADZgAAwAAAABAAAAAQWZkCWteWDQiPDxNqNJEXAAAAAASAAACgAAAAEAAAAJ+CrnFVJgnfR0kHFWpdVrwoAAAAY90PxAjUuisOgdcwd7+7hlPcFO+WzbLC+Wq9UHdRnCP6ITvt0j1GLhQAAAD63uECAz0AFe5UN+CCjEsqn1hdig==")]
+        [DataRow("AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAB3C0CXxCAoBvMWRF+AWWwdAAAAAASAAACgAAAAEAAAAIbzfSPB7/4Bn47HpBiXqxE4AAAAFXLNWeZ+0r1ZEpPY4usCoNMUOE7FQrJyFE6LQrupW05nf7vAFmu4iqVQRmpkZ6PbSXTEGj8+BY0UAAAA67uF41D4JbEIEvUkb3+xo/LSdBg=",
+                 "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAC9gF1p+A9r6dTrHhZ1glugAAAAAASAAACgAAAAEAAAAG6atuu2uaw2+PoX67sNyiEwAAAAUEb8YJrg3Ep1PUvXqLKAAHNlnZ/P0abSt6NJ0Dx6257Av2JZFbpzQ20zP+k8oUeSFAAAAC7lQiVe7adagMQjRzvxXkJ5QtgB")]
         public void Matches_Negative_Security_String_Extensions_Compares_An_Encrypted_SecureString_To_A_Null(string object1, string object2)
         {
             // -------
@@ -364,6 +364,8 @@ namespace SecurityStringExtensions_UT
         // ------------------------------------------------
 
         [TestMethod]
+        [DataRow("This is a string", "This is A string")]
+        [DataRow("This is a string", "This is a strinG")]
         [DataRow("This is a string", "This is a very different string")]
         [DataRow("This is a very different string", "This is a string")]
         public void Matches_Edge_Case_Security_String_Extensions_Compares_Two_Different_Values(string thing1, string thing2)

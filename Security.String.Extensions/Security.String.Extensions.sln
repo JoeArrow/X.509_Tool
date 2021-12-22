@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security.String.Extensions", "Security.String.Extensions\Security.String.Extensions.csproj", "{0D424497-8745-4E67-BC9F-8154A1ADC276}"
 EndProject
@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security.String.Extensions_
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test Scripts", "Test Scripts", "{9B0F79D3-0A40-4E5E-BC05-C6A33E31E16F}"
 	ProjectSection(SolutionItems) = preProject
+		CodeCoverage.runsettings = CodeCoverage.runsettings
 		RunTests.ps1 = RunTests.ps1
 		Sonar.ps1 = Sonar.ps1
 	EndProjectSection
@@ -33,17 +34,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2D1FD881-AC09-4CD7-B561-A4B88A73F0DF}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://tfs.aflac.com:8080/tfs/globalcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Security.String.Extensions\\Security.String.Extensions.csproj
-		SccProjectName1 = Security.String.Extensions
-		SccLocalPath1 = Security.String.Extensions
-		SccProjectUniqueName2 = Security.String.Extensions_UT\\Security.String.Extensions_UT.csproj
-		SccProjectName2 = Security.String.Extensions_UT
-		SccLocalPath2 = Security.String.Extensions_UT
 	EndGlobalSection
 EndGlobal

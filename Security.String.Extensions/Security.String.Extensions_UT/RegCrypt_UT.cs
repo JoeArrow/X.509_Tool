@@ -68,10 +68,10 @@ namespace Security.String.Extensions_UT
         [TestMethod]
         [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\ADLDSUnitTest", "UserID", @"AFLHQ\E99965")]
         [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\Continuum", "UserID", @"AFLHQ\contindeployNT-user")]
-        [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\SecureStringExtension", "UserID", @"AFLHQ\contindeployNT-user")]
+        [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\SecureStringExtension", "UserID", @"Bogus")]
         [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\AzureFTP", "UserID", @"AZRCCLMAccountSearch\$AZRCCLMAccountSearch")]
-        [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\SecureStringExtension\ASCII", "UserID", @"AFLHQ\contindeployNT-user")]
-        [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\SecureStringExtension\UNICODE", "UserID", @"AFLHQ\contindeployNT-user")]
+        [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\SecureStringExtension\ASCII", "UserID", @"Bogus")]
+        [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\SecureStringExtension\UNICODE", "UserID", @"Bogus")]
         public void ReadRegistry_RegCrypt_Reads_An_Encrypted_Value_From_The_Registry(string path, string nodeName, string expected)
         {
             // ---

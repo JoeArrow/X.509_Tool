@@ -34,7 +34,7 @@ namespace Security.String.Extensions
         ///     Specifies the data protection scope of the DPAPI.
         /// </summary>
 
-        private const DataProtectionScope Scope = DataProtectionScope.LocalMachine;
+        private const DataProtectionScope Scope = DataProtectionScope.CurrentUser;
 
         // ------------------------------------------------
         /// <summary>
@@ -364,7 +364,7 @@ namespace Security.String.Extensions
 
                     int index = 0;
 
-                    while(((char)byteA) != '\0' && ((char)byteB) != '\0')
+                    while(index < value.Length * 2)
                     {
                         byteA = Marshal.ReadByte(ptrA, index);
                         byteB = Marshal.ReadByte(ptrB, index);
