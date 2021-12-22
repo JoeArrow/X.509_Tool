@@ -30,36 +30,6 @@ namespace SecurityStringExtensions_UT
         public SecurityExtensions_UT() { }
 
         // ------------------------------------------------
-        /// <summary>
-        ///     Gets or sets the test context which provides
-        ///     information about and functionality for the current test run.
-        ///</summary>
-
-        public TestContext TestContext { set; get; }
-
-        #region Additional test attributes
-#pragma warning disable
-        // You can use the following additional attributes as you write your tests:
-        //
-        // Use ClassInitialize to run code before running the first test in the class
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Use TestCleanup to run code after each test has run
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-#pragma warning restore
-        #endregion
-
-        // ------------------------------------------------
 
         [TestMethod]
         [DataRow("jarr0w@afl", "")]
@@ -67,7 +37,7 @@ namespace SecurityStringExtensions_UT
         [DataRow("this is a password", "")]
         [DataRow("B0GU5P@55W0rd", "Test Entropy")]
         [DataRow("this is a password", "32FDDE48-A0F3-4A92-BA60-F680F095B6BB")]
-        public void Encryption_Security_String_Extensions_Encrypts_a_String(string testValue, string entropy)
+        public void Encrypt_Security_String_Extensions(string testValue, string entropy)
         {
             // ---
             // Act
@@ -89,7 +59,7 @@ namespace SecurityStringExtensions_UT
         // ------------------------------------------------
 
         [TestMethod]
-        public void Encryption_Security_String_Extensions_Encrypts_an_Empty_String_Throws()
+        public void Encrypt_Security_String_Extensions_Throws()
         {
             // -------
             // Arrange
@@ -108,7 +78,7 @@ namespace SecurityStringExtensions_UT
         [TestMethod]
         [DataRow(true, "")]
         [DataRow(false, "Value")]
-        public void IsNullOrEmpty_Security_String_Identifies_When_A_Secure_String_Is_Null_Or_Empty(bool expected, string testValue)
+        public void IsNullOrEmpty_SecureString(bool expected, string testValue)
         {
             // -------
             // Arrange
@@ -132,7 +102,7 @@ namespace SecurityStringExtensions_UT
         [DataRow("jarr0w@afl", "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAAby6gPfhe9xnDpkEAl4ijVAAAAAASAAACgAAAAEAAAAHiPqNLl+LeesM/ICTV40rIYAAAAsUJTGjIYUlXnAWzPyE7tEyZuVARnJ3KLFAAAAPmN39gyEjiOWQgIcmdHuBcp9AZU", "")]
         [DataRow("this is a password", "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAACBl8LhZMi0PJfV/dlZ1jxxAAAAAASAAACgAAAAEAAAABXNZy3sLWVOKL2qwb3J6WwoAAAAr4aUNrtbTD6HoMi2PsYKmhr8ZVed2CDCqRgBjRx+rXLCioaIL1zTgBQAAACCZr7xGkwfp45lh34bPJGn33Llqw==", "")]
         [DataRow("this is a password", "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAABqgE8p+JRDKzGHhGlZQDgvAAAAAASAAACgAAAAEAAAAIXLH6g3suBPX9ye6dHR/isoAAAAutXvhER0joXj6CO8B0U59kbF1s75esXhFaI67EkZwpeE+vgCh0FYVRQAAABHHe74lV2vsG20ZukfudUVzUh8cw==", "32FDDE48-A0F3-4A92-BA60-F680F095B6BB")]
-        public void Decryption_Security_String_Extensions_Decrypts_an_Encrypted_String(string expected, string encryptedVal, string entropy)
+        public void Decrypt_Security_String_Extensions(string expected, string encryptedVal, string entropy)
         {
             // ----------------------------------------------------
             // Each machine will result in unique encrypted values.
@@ -170,7 +140,7 @@ namespace SecurityStringExtensions_UT
         [TestMethod]
         [DataRow("")]
         [DataRow("0BF792C6-F013-41E5-9CC0-793DA4B58428")]
-        public void Decryption_Security_String_Extensions_Decrypts_An_Empty_Encrypted_String_Throws(string entropy)
+        public void Decrypt_Security_String_Extensions_Throws(string entropy)
         {
             // -------
             // Arrange
@@ -188,7 +158,7 @@ namespace SecurityStringExtensions_UT
         [TestMethod]
         [DataRow("B0GU5P@55W0rd")]
         [DataRow("this is a password")]
-        public void ToSecureString_Security_String_Extensions_Wraps_a_String_in_a_SecureString_Object(string testValue)
+        public void ToSecureString_Security_String_Extensions(string testValue)
         {
             // ---
             // Act
@@ -212,7 +182,7 @@ namespace SecurityStringExtensions_UT
         [DataRow("B0GU5P@55W0rd", "")]
         [DataRow("this is a password", "")]
         [DataRow("THIS IS A PASSWORD", "32FDDE48-A0F3-4A92-BA60-F680F095B6BB")]
-        public void EncryptSecureString_Security_String_Extensions_Encrypts_a_SecureString_Object_Duh(string testValue, string entropy)
+        public void Encrypt_SecureString(string testValue, string entropy)
         {
             // ---
             // Act
@@ -240,7 +210,7 @@ namespace SecurityStringExtensions_UT
         [DataRow("32FDDE48-A0F3-4A92-BA60-F680F095B6BB",
                  "this is a password",
                  "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAABqgE8p+JRDKzGHhGlZQDgvAAAAAASAAACgAAAAEAAAAIXLH6g3suBPX9ye6dHR/isoAAAAutXvhER0joXj6CO8B0U59kbF1s75esXhFaI67EkZwpeE+vgCh0FYVRQAAABHHe74lV2vsG20ZukfudUVzUh8cw==")]
-        public void DecryptToSecureString_Security_String_Extensions_Decrypts_an_Encrypted_SecureString_Object(string entropy, string expected, string testValue)
+        public void DecryptToSecureString_Security_String_Extensions(string entropy, string expected, string testValue)
         {
             // ---
             // Act
@@ -261,7 +231,7 @@ namespace SecurityStringExtensions_UT
         // ------------------------------------------------
 
         [TestMethod]
-        public void DecryptToSecureString_Security_String_Extensions_Decrypts_an_Empty_SecureString_Object_Throws()
+        public void DecryptToSecureString_Security_String_Extensions_Throws()
         {
             // -------
             // Arrange
@@ -288,7 +258,7 @@ namespace SecurityStringExtensions_UT
         [DataRow(true,
                  "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAB3C0CXxCAoBvMWRF+AWWwdAAAAAASAAACgAAAAEAAAAIbzfSPB7/4Bn47HpBiXqxE4AAAAFXLNWeZ+0r1ZEpPY4usCoNMUOE7FQrJyFE6LQrupW05nf7vAFmu4iqVQRmpkZ6PbSXTEGj8+BY0UAAAA67uF41D4JbEIEvUkb3+xo/LSdBg=",
                  "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAB3C0CXxCAoBvMWRF+AWWwdAAAAAASAAACgAAAAEAAAAIbzfSPB7/4Bn47HpBiXqxE4AAAAFXLNWeZ+0r1ZEpPY4usCoNMUOE7FQrJyFE6LQrupW05nf7vAFmu4iqVQRmpkZ6PbSXTEGj8+BY0UAAAA67uF41D4JbEIEvUkb3+xo/LSdBg=")]
-        public void Matches_Security_String_Extensions_Compares_Two_Different_Encrypted_SecureString_Objects(bool expected, string object1, string object2)
+        public void Matches_SecureString(bool expected, string object1, string object2)
         {
             // ---
             // Act
@@ -320,7 +290,7 @@ namespace SecurityStringExtensions_UT
 
         [DataRow("AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAB3C0CXxCAoBvMWRF+AWWwdAAAAAASAAACgAAAAEAAAAIbzfSPB7/4Bn47HpBiXqxE4AAAAFXLNWeZ+0r1ZEpPY4usCoNMUOE7FQrJyFE6LQrupW05nf7vAFmu4iqVQRmpkZ6PbSXTEGj8+BY0UAAAA67uF41D4JbEIEvUkb3+xo/LSdBg=",
                  "AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiJxHNd4RvUWFwpk4CSGfFgQAAAACAAAAAAADZgAAwAAAABAAAAC9gF1p+A9r6dTrHhZ1glugAAAAAASAAACgAAAAEAAAAG6atuu2uaw2+PoX67sNyiEwAAAAUEb8YJrg3Ep1PUvXqLKAAHNlnZ/P0abSt6NJ0Dx6257Av2JZFbpzQ20zP+k8oUeSFAAAAC7lQiVe7adagMQjRzvxXkJ5QtgB")]
-        public void Matches_Negative_Security_String_Extensions_Compares_An_Encrypted_SecureString_To_A_Null(string object1, string object2)
+        public void Matches_SecureString_Negative(string object1, string object2)
         {
             // -------
             // Arrange
@@ -347,7 +317,7 @@ namespace SecurityStringExtensions_UT
         // ------------------------------------------------
 
         [TestMethod]
-        public void Matches_Edge_Case_Security_String_Extensions_Compares_Two_Null_Values()
+        public void Matches_SecureString_Null_Values()
         {
             // -------
             // Arrange
@@ -368,7 +338,7 @@ namespace SecurityStringExtensions_UT
         [DataRow("This is a string", "This is a strinG")]
         [DataRow("This is a string", "This is a very different string")]
         [DataRow("This is a very different string", "This is a string")]
-        public void Matches_Edge_Case_Security_String_Extensions_Compares_Two_Different_Values(string thing1, string thing2)
+        public void Matches_SecureString_Different_Values(string thing1, string thing2)
         {
             // -------
             // Arrange
@@ -387,7 +357,7 @@ namespace SecurityStringExtensions_UT
         [TestMethod]
         [DataRow("this is a password", "F456EFB8-1576-42A8-8394-8CDAB7D89B2F", "F456EFB8-1576-42A8-8394-8CDAB7D89B2F", true)]
         [DataRow("this is a password", "F456EFB8-1576-42A8-8394-8CDAB7D89B2F", "8FDEA673-258B-44A0-869C-05C1458580E3", false)]
-        public void Entropy_Security_String_Extensions_Effects_Of_Entropy_On_Encryption(string testValue, string entropyIn, string entropyOut, bool expected)
+        public void Encrypt_Security_String_Extensions_With_Entropy(string testValue, string entropyIn, string entropyOut, bool expected)
         {
             // ---
             // Act
@@ -424,7 +394,7 @@ namespace SecurityStringExtensions_UT
         [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\AflacDataStoreTEST", "UserID", "E99965")]
         [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\ADLDSUnitTest", "UserID", @"AFLHQ\E99965")]
         [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\AflacDataStore\ASPNET_SETREG", "UserName", @"AFLHQ\E99965")]
-        public void DecryptRegistryEntry_Security_String_Extensions_Decrypts_A_Value_Encrypted_Using_Krypto(string path, string nodeName, string expectedValue)
+        public void DecryptRegistryEntry_Security_String_Extensions(string path, string nodeName, string expectedValue)
         {
             // ---
             // Log

@@ -23,8 +23,8 @@ namespace Security.String.Extensions_UT
     [TestClass]
     public class RegCrypt_UT
     {
-        private string cr = $"{Environment.NewLine}";
-        private string crt = $"{Environment.NewLine}\t";
+        private readonly string cr = Environment.NewLine;
+        private readonly string crt = $"{Environment.NewLine}\t";
 
         public RegCrypt_UT() { }
 
@@ -72,7 +72,7 @@ namespace Security.String.Extensions_UT
         [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\AzureFTP", "UserID", @"AZRCCLMAccountSearch\$AZRCCLMAccountSearch")]
         [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\SecureStringExtension\ASCII", "UserID", @"Bogus")]
         [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\SecureStringExtension\UNICODE", "UserID", @"Bogus")]
-        public void ReadRegistry_RegCrypt_Reads_An_Encrypted_Value_From_The_Registry(string path, string nodeName, string expected)
+        public void ReadRegistry_RegCrypt(string path, string nodeName, string expected)
         {
             // ---
             // Log
@@ -100,7 +100,7 @@ namespace Security.String.Extensions_UT
 
         [TestMethod]
         [DataRow(@"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\SecureStringExtension\Volatile", "UserID", @"AFLHQ\contindeployNT-user")]
-        public void ReadString_RegCrypt_Reads_An_Encrypted_Value_From_The_Registry(string path, string nodeName, string expected)
+        public void ReadString_RegCrypt(string path, string nodeName, string expected)
         {
             // ---
             // Log
@@ -127,7 +127,7 @@ namespace Security.String.Extensions_UT
 
         [TestMethod]
         [DataRow("UserID", @"AFLHQ\contindeployNT-user", @"HKEY_LOCAL_MACHINE\SOFTWARE\AflacApps\SecureStringExtension\Volitile")]
-        public void WriteRegistry_RegCrypt_Adds_An_Encrypted_Value_To_The_Registry(string nodeName, string entryValue, string path)
+        public void WriteRegistry_RegCrypt(string nodeName, string entryValue, string path)
         {
             // ---
             // Log
