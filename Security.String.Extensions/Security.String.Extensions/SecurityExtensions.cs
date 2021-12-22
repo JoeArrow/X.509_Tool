@@ -87,6 +87,52 @@ namespace Security.String.Extensions
 
         // ------------------------------------------------
         /// <summary>
+        ///     Encrypts the contents of a secure string.
+        /// </summary>
+        /// <param name="value">
+        ///     An unencrypted string that needs to be secured.
+        /// </param>
+        /// <returns>
+        ///     A base64 encoded string that represents the 
+        ///     encrypted binary data.
+        /// </returns>
+        /// <exception cref="ArgumentNullException">
+        ///     If <paramref name="value"/> is a null reference.
+        /// </exception>
+
+        public static string Encrypt(this SecureString value, string optionalEntropy = null)
+        {
+            string retVal = null;
+
+            if(!value.IsNullOrEmpty())
+            {
+                var ptr = Marshal.SecureStringToCoTaskMemUnicode(value);
+
+                try
+                {
+                    var buffer = new char[value.Length];
+                    Marshal.Copy(ptr, buffer, 0, value.Length);
+
+                    var data = Encoding.Unicode.GetBytes(buffer);
+                    var entropy = string.IsNullOrEmpty(optionalEntropy) ? null : Encoding.Unicode.GetBytes(optionalEntropy);
+                    var encrypted = ProtectedData.Protect(data, entropy, Scope);
+
+                    // -----------------------
+                    // return as base64 string
+
+                    retVal = Convert.ToBase64String(encrypted);
+                }
+                finally
+                {
+                    Marshal.ZeroFreeCoTaskMemUnicode(ptr);
+                }
+            }
+
+            return retVal;
+        }
+
+        // ------------------------------------------------
+        /// <summary>
         ///     Decrypts a given string.
         /// </summary>
         /// <param name="cipher">
@@ -137,52 +183,6 @@ namespace Security.String.Extensions
             if(!IsUicodeString(retVal))
             {
                 retVal = Encoding.ASCII.GetString(decrypted);
-            }
-
-            return retVal;
-        }
-
-        // ------------------------------------------------
-        /// <summary>
-        ///     Encrypts the contents of a secure string.
-        /// </summary>
-        /// <param name="value">
-        ///     An unencrypted string that needs to be secured.
-        /// </param>
-        /// <returns>
-        ///     A base64 encoded string that represents the 
-        ///     encrypted binary data.
-        /// </returns>
-        /// <exception cref="ArgumentNullException">
-        ///     If <paramref name="value"/> is a null reference.
-        /// </exception>
-
-        public static string Encrypt(this SecureString value, string optionalEntropy = null)
-        {
-            string retVal = null;
-
-            if(!value.IsNullOrEmpty())
-            {
-                var ptr = Marshal.SecureStringToCoTaskMemUnicode(value);
-
-                try
-                {
-                    var buffer = new char[value.Length];
-                    Marshal.Copy(ptr, buffer, 0, value.Length);
-
-                    var data = Encoding.Unicode.GetBytes(buffer);
-                    var entropy = string.IsNullOrEmpty(optionalEntropy) ? null : Encoding.Unicode.GetBytes(optionalEntropy);
-                    var encrypted = ProtectedData.Protect(data, entropy, Scope);
-
-                    // -----------------------
-                    // return as base64 string
-
-                    retVal = Convert.ToBase64String(encrypted);
-                }
-                finally
-                {
-                    Marshal.ZeroFreeCoTaskMemUnicode(ptr);
-                }
             }
 
             return retVal;
