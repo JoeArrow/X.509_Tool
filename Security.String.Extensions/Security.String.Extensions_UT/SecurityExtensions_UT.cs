@@ -47,13 +47,16 @@ namespace SecurityStringExtensions_UT
             // ---
             // Log
 
-            Console.WriteLine($"TestValue:{crt}{testValue}{cr}Entropy:{crt}'{entropy}'{cr}Cipher Length:{crt}{cipher.Length}{cr}Cipher:{crt}{cipher}");
-
+            Console.WriteLine($"Entropy:{crt}'{entropy}'{cr}" +
+                              $"TestValue:{crt}{testValue}{cr}" +
+                              $"TestValue Length:{crt}{testValue.Length}{cr}" +
+                              $"Cipher Length:{crt}{cipher.Length}{cr}" +
+                              $"Cipher:{crt}{cipher}");
             // ------
             // Assert
 
-            Assert.IsTrue(cipher.Length > 50);
             Assert.AreNotEqual(testValue, cipher);
+            Assert.IsTrue(cipher.Length > testValue.Length);
         }
 
         // ------------------------------------------------
