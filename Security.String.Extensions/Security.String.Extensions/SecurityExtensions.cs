@@ -13,6 +13,7 @@ using System.Security;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Runtime.InteropServices;
+using AESEncryption;
 
 // ------------------------------------------------------------------
 // I want to give credit where credit is due: 
@@ -132,6 +133,13 @@ namespace Security.String.Extensions
         }
 
         // ------------------------------------------------
+
+        public static SecureString Encrypt(this string value, SecureString key)
+        {
+            return AESEnc.Encrypt(value.ToSecureString(), key);
+        }
+
+        // ------------------------------------------------
         /// <summary>
         ///     Decrypts a given string.
         /// </summary>
@@ -186,6 +194,13 @@ namespace Security.String.Extensions
             }
 
             return retVal;
+        }
+
+        // ------------------------------------------------
+
+        public static string Decrypt(this SecureString value, SecureString key)
+        {
+            return AESEnc.Decrypt(value, key);
         }
 
         // ------------------------------------------------

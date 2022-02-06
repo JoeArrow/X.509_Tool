@@ -24,8 +24,8 @@ namespace SecurityStringExtensions_UT
     [TestClass]
     public class SecurityExtensions_UT
     {
-        private string cr = $"{Environment.NewLine}";
-        private string crt = $"{Environment.NewLine}\t";
+        private readonly string cr = $"{Environment.NewLine}";
+        private readonly string crt = $"{Environment.NewLine}\t";
 
         public SecurityExtensions_UT() { }
 
@@ -62,7 +62,32 @@ namespace SecurityStringExtensions_UT
         // ------------------------------------------------
 
         [TestMethod]
-        public void Encrypt_Security_String_Extensions_Throws()
+        [DataRow("THIS IS A PASSWORD", "1234567891234567")]
+        [DataRow("THIS IS A PASSWORD", "1234567812345678")]
+        [DataRow("THIS IS A PASSWORD", "Where is my key?")]
+        public void Encrypt_Security_String_Extensions_AES(string testValue, string key)
+        {
+            // -------
+            // Arrange
+
+            var secureKey = key.ToSecureString();
+
+            // ---
+            // Act
+
+            var resp = testValue.Encrypt(secureKey);
+            var raw = resp.Decrypt(secureKey);
+
+            // ------
+            // Assert
+
+            Assert.AreEqual(testValue, raw);
+        }
+
+        // ------------------------------------------------
+
+        [TestMethod]
+        public void Encrypt_Security_String_Extensions_Throw()
         {
             // -------
             // Arrange

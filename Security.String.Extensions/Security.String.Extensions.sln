@@ -14,6 +14,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test Scripts", "Test Script
 		Sonar.ps1 = Sonar.ps1
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{34866BC2-EA05-43DC-B88E-40DC126F98F0}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\AESEncryption.dll = Lib\AESEncryption.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
